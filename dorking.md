@@ -1,405 +1,405 @@
 # GOOGLE HACKING / DORKING 
 
-* [¿Qué es el dorking?](#¿Qué-es-el-dorking?)
-* [Importancia](#Importancia)
-* [Conceptos basicos](#Conceptos-basicos)
-* [¿Cómo usar esto en el "hacking"?](#¿Cómo-usar-esto-en-el-"hacking"?)
-* [Ejemplos de dorks](#Ejemplos-de-dorks)
-* [Dorks para inyeccion sql y xss](#Dorks-para-inyeccion-sql-y-xss)
-* [Dorks para encontrar camaras](#Dorks-para-encontrar-camaras)
-* [OSINT y DORKS](#OSINT-y-DORKS)
-* [Importancia final](#Importancia-final)
+* [What is dorking?] (# What-is-dorking?)
+* [Importance] (# Importance)
+* [Basic concepts] (# Basic-concepts)
+* [How to use this in hacking?] (# How-to-use-this-in-hacking?)
+* [Examples of dorks] (# Examples-of-dorks)
+* [Dorks for sql and xss injection] (# Dorks-for-sql-and-xss injection)
+* [Dorks to find cameras] (# Dorks-to-find-cameras)
+* [OSINT and DORKS] (# OSINT-y-DORKS)
+* [Final importance] (# Final-importance)
 
 
-## ¿Qué es el dorking?
+## What is dorking?
 
-El Google hacking o Dorking no es mas que un modo de buscar cosas un poco mas especializada,
-por el nombre "Google Hacking" se puede dar la imprecion de que solo se usa en google, pero eso no es correcto.
-El dorking no es mas que una busqueda avanzada en donde hacemos uso de operadores que funcionan como un filtro
-para dirigir la busqueda directamente a donde nosotros queremos, tambien usamos simbolos para buscar palabras o frases exactas.
-Esto nos servirá para buscar en casi cualquier motor de busqueda que encontremos en internet.
+Google hacking or Dorking is nothing more than a way to search for things a little more specialized,
+The name "Google Hacking" gives the impression that it is only used in google, but that is not correct.
+Dorking is nothing more than an advanced search where we use operators that work as a filter
+To direct the search directly to where we want, we also use symbols to search for exact words or phrases.
+This will help us to search almost any search engine that we find on the internet.
 
-## Importancia
+## Importance
 
-El saber un poco de "Dorking" nos ayuda en muchos aspectos de nuestra vida, no es solo para buscar paginas vulnerables
-recordemos que el termino "Hacking" primeramente se utiliza cuando una persona domina mucho una cosa a tal grado
-que puede ver las cosas desde otros puntos de vista y asi llegar a ver o alcanzar cosas que otras personas no pueden,
-si salimos un poco de la informatica podemos usar un ejemplo.
+Knowing a little "Dorking" helps us in many aspects of our life, it is not just to search for vulnerable pages
+remember that the term "Hacking" is first used when a person has mastered something to such a degree
+who can see things from other points of view and thus get to see or achieve things that other people cannot,
+If we get out of computer science a bit, we can use an example.
 
-Un mecanico que tiene años trabajando con carros y se especializa en motores, el con el tiempo ya entiende 
-mucho mejor los problemas de un motor que cualquier otro mecanico, al tener mucha mas experiencia en el tema,
-se puede decir que el es un "hacker" en mecanica por llegar a saber eso.
+A mechanic who has worked with cars for years and specializes in engines, he eventually understands 
+much better engine problems than any other mechanic, having much more experience on the subject,
+You can tell that he is a "hacker" in mechanics by coming to know that.
 
-Volviendo al tema de Dorking es muy importante que todas las personas sepan un poco de esto, en este escrito se tratará de 
-explicar lo mas detalladamente posible como comenzar y si ya sabes algo de esto puedas reforzar temas basicos.
+Returning to the subject of Dorking it is very important that all people know a little about this, in this writing it will be about 
+explain in as much detail as possible how to start and if you already know something about this you can reinforce basic themes.
 
-## Conceptos basicos
+## Basic concepts
 
-Como se explicó antes, estas busquedas avanzadas usan operadores y simbolos, como los siguientes: 
+As explained before, these advanced searches use operators and symbols, such as the following: 
 
-Vamos a empezar con algunos operadores muy comunes:
+Let's start with some very common operators:
 
 
 
-* site: sólo busca resultados dentro de la web que va detrás de “site:”
+* site: only searches for results within the web that goes after "site:"
 
-      Ejemplo: site:www.google.com 
-      Esta busqueda solo nos mostrará resultados de la pagina de Google 
+      Example: site: www.google.com 
+      This search will only show us results from the Google page 
       
-* intitle o allintitle: Esto solo buscará en los titulos 
+* intitle or allintitle: This will only search the titles 
       
-      Ejemplo: intitle:"Google dorking"
-      Esta busqueda nos mostrará solo articulos que tengan la frase "google dorkin" en su titulo
+      Example: intitle: "Google dorking"
+      This search will show us only articles that have the phrase "google dorkin" in their title
       
-* inurl o allinurl: los resultados estarán en la url de las paginas 
+* inurl or allinurl: the results will be in the url of the pages 
 
-      Ejemplo: inurl: /parametro.php?id=
-      Esta busqueda nos mostrará resultados paginas en donde contengan "/parametro.php?id=" en su url.
+      Example: inurl: /parameter.php?id=
+      This search will show us page results where they contain "/parametro.php?id=" in their url.
       
-      Nota: Este se puede confundir un poco al inicio con el operador "site" por que si no expresamos bien
-      lo que queremos encontrar y ponemos un sitio web, nos mostrará el mismo resultado que el operador "site".
+      Note: This can be confused a bit at the beginning with the operator "site" because if we do not express well
+      what we want to find and we put a website, it will show us the same result as the "site" operator.
       
-      Recordemos que un link o url tiene la siguiente sintaxis dependiendo si el administrador de la pagina
-      configuró o no los links para que sean mas amigables.
+      Remember that a link or url has the following syntax depending on whether the administrator of the page
+      configured or not the links to be more friendly.
       
-      Sitio con links no amigables:
-      `http/s://www.sitiowebdeejemplo.com/parametro1.php?id=1&parametro2.php?id=22`
+      Site with unfriendly links:
+      `http / s: //www.examplewebsite.com/parameter1.php? id = 1 & parameter2.php? id = 22`
       
-      Sitio con links amigables:
-      `http/s://www.sitiowebdeejemplo.com/ejemplo`
+      Site with friendly links:
+      `http / s: // www.examplewebsite.com / example`
       
-* filetype o ext: sólo busca archivos (doc, xls, txt…) 
+* filetype or ext: only searches for files (doc, xls, txt ...) 
         
-      Nota: Este operador va acompañado con alguno de los que acabamos de ver.
-      Ejemplo: site:www.paginaweb.com filetype:.pdf
-      Esta busqueda nos mostrará los archivos .pdf que esten "sueltos" o que esten filtrados en la red desde la pagina www.paginaweb.com 
+      Note: This operator is accompanied by one of the ones we have just seen.
+      Example: site: www.paginaweb.com filetype: .pdf
+      This search will show us the .pdf files that are "loose" or that are filtered on the net from the page www.paginaweb.com 
       
-* related: busca webs relacionadas con una determinada.
+* related: searches for websites related to a certain one.
         
-      Ejemplo: relates: www.google.com 
-      Nos mostrará paginas parecidas a google, es decir, nos mostrará otros motores de busqueda
+      Example: relates: www.google.com 
+      It will show us pages similar to google, that is, it will show us other search engines
       
-* cache: muestra el resultado en la cache de Google de una página web.
+* cache: shows the result in the Google cache of a web page.
       
-      Ejemplo: cache:www.google.com
-      Nos mostrará la pagina web guardada en el cache de google
+      Example: cache: www.google.com
+      It will show us the web page saved in the google cache
       
-* define: busca definiciones de palablas
+* define: search word definitions
 
-      Ejemplo: define:linux
-      Nos mostrará resultados en donde se defina que es linux
+      Example: define: linux
+      It will show us results where it is defined that it is linux
       
-* Allintext o intext: nos buscara la frase exacta que pongamos
+* Allintext or intext: it will look for the exact phrase that we put
 
-      Ejemplo: Allintext:abcdefghijklmnopqrstuvwxyz
-      Nos mostrará paginas en donde venga el abecedario 
+      Example: Allintext: abcdefghijklmnopqrstuvwxyz
+      It will show us pages where the alphabet comes from 
      
-* weather: nos mostrará el clima de la parte del mundo que queramos ver 
+* weather: it will show us the weather of the part of the world that we want to see 
 
-      Ejemplo: weather:México
-      Nos mostrará el clima de la ciudad de México 
+      Example: weather: Mexico
+      It will show us the climate of Mexico City 
       
-* stock: nos mostrará informacion financiera 
+* stock: will show us financial information 
 
-      Ejemplo: ````
-               stock:TSLA
-               stock:goog
-               ```
-      Esto nos mostrará la informacion financiera de la bolsa de valores 
+      Example: `` ``
+               stock: TSLA
+               stock: goog
+               `` ''
+      This will show us the financial information of the stock market 
       
-* link: nos muestra las paginas en donde esta enlazada la pagina que buscamos 
+* link: shows us the pages where the page we are looking for is linked 
 
-      Ejemplo: link:www.youtube.com
-      Nos mostrará todas las paginas que enlazan algun link de youtube en su pagina 
+      Example: link: www.youtube.com
+      It will show us all the pages that link any youtube link on your page 
       
-Ahora vamos a ver algunos simbolos muy importantes:
+Now we are going to see some very important symbols:
 
-* ” ” (comillas): buscar frase exacta
+* ”” (Quotes): search for exact phrase
        
-      Ejemplo: "alert(Y000!)"
-      En este caso estoy buscando mi propio apodo o mi nick de twitter 
+      Example: "alert (Y000!)"
+      In this case I am looking for my own nickname or my Twitter nick 
       
-* `+ y -` : incluir o excluir alguna palabra
+* `+ and -`: include or exclude any word
 
-      ejemplo: animales -perros
-      Esto nos da como resultado muchas paginas que hablan de animales pero intenta excluir todas las paginas en donde se hable de perros
+      example: animals -dogs
+      This results in many pages that talk about animals but tries to exclude all the pages that talk about dogs
       
-* `*` (asterisco): comodín, cualquier palabra, pero una sóla palabra.
+* `*` (asterisk): wildcard, any word, but a single word.
       
-      Ejemplo: site:*.google.com
-      Lo cual nos mostrará todas las paginas de google incluyendo sus subdominios.
+      Example: site: *. Google.com
+      Which will show us all the google pages including their subdomains.
       
       
-## ¿Cómo usar esto en el "hacking"?      
+## How to use this in "hacking"?      
 
-Primero que nada, tenemos que tener muy en claro lo que queremos lograr, lo que vamos a buscar y lo que queremos encontrar.
+First of all, we have to be very clear about what we want to achieve, what we are going to look for and what we want to find.
 
-Para poder empezar en el Google hacking ya viendo desde una perspectiva en donde queremos encontrar "informacion" que no todos pueden encontrar, tenemos que conocer
-archivos que contengan esa informacion, tenemos que conocer los sistemas en los cuales se basa una pagina web, tenemos que estar enterados de todo un poco. 
+In order to start Google hacking, seeing from a perspective where we want to find "information" that not everyone can find, we have to know
+files that contain that information, we have to know the systems on which a web page is based, we have to be aware of everything a little. 
 
-El primer ejemplo que vamos a ver es el de como buscar el archivo "robots.txt", pero primero para buscar ese archivo tenemos que saber: ¿Qué es?, ¿qué contiene?,
-¿Porqué las paginas lo usan?, no podemos buscar algo solo por buscarlo sin saber que es.
+The first example we are going to see is how to find the "robots.txt" file, but first to find that file we have to know: What is it? What does it contain?
+Why do the pages use it? We cannot search for something just by looking for it without knowing what it is.
 
-El archivo "robots.txt" es para facilitar la indexación de un sitio web.  Este archivo sirve para dar instrucciones a los robots sobre qué contenidos deben rastrear y cuáles no y cómo deberían hacerlo. En palabras mas faciles ese archivo sirve para que la pagina web este "segura" de las busquedas de google, ya que en el archivo vienen las paginas que el administrador no quiere que se vean en los resultados de google, vamos, que es como excluir las paginas para no ser encontradas.
+The "robots.txt" file is for easy indexing of a website. This file is used to instruct the robots on what content they should and should not crawl and how they should do it. In easier words, this file is used to make the web page "safe" from google searches, since in the file come the pages that the administrator does not want to be seen in the google results, come on, that's how to exclude the pages not to be found.
 
-Este archivo en concreto esta escrito de la siguiente manera: 
+This specific file is written as follows: 
 
-```
+`` ''
 User-agent: *
 
 
-Disallow: /ejemplo/
-Disallow: /1/ejemplo/
-Disallow: /2/
-Disallow: /ejemplo2/
-Disallow: /ejemplo3/
-Disallow: /3/ejemplo4
-Disallow: /no_quiero_que_me_vean
-Allow: /yo_si_quiero_que_me_vean
-Allow: /yo_tambien
+Disallow: / example /
+Disallow: / 1 / example /
+Disallow: / 2 /
+Disallow: / example2 /
+Disallow: / example3 /
+Disallow: / 3 / example4
+Disallow: / I do not want to be seen
+Allow: / I_if_want_ to be seen
+Allow: / me_also
 
-```
-Se usa de la siguiente manera en el link de la pagina:
+`` ''
+It is used in the following way in the link of the page:
 
-`https://www.paginadeejemplo.com/robots.txt`
+`https: // www.examplepage.com / robots.txt`
 
-Con lo cual tenemos muchas maneras de como encontrarlo, por ejemplo... sabemos en que parte de el link esta, sabemos que se usa en la url:
+With which we have many ways to find it, for example ... we know where it is in the link, we know that it is used in the url:
 
-podemos hacer una busqueda como la siguiente:
+we can do a search like the following:
 
-`inurl:robots.txt` pero esto nos mostrará resultados muy generales y puede ser que encuentre el archivo o algo relacionado a el
+`inurl: robots.txt` but this will show us very general results and it might find the file or something related to it
 
-aqui es cuando vamos a usar de verdad los operadores, los vamos a mezclar para obtener mejores resultados:
+This is when we are going to actually use the operators, we are going to mix them up for best results:
 
-usando el operador "site" + "inurl" y el simbolo `*` hacemos la busqueda mucho mas especifica:
+Using the operator "site" + "inurl" and the symbol `*` we make the search much more specific:
 
-`site:www.google.com inurl:robots.txt` ya con esto enfocamos que la busqueda es en la pagina de google, y listo!! nos da como resultado: https://www.google.com/robots.txt
+`site: www.google.com inurl: robots.txt` with this we focus that the search is on the google page, and voila! gives us as a result: https://www.google.com/robots.txt
 
-pero si queremos hacen mucho mas especifica la busqueda podemos usar:
+but if we want to make the search much more specific we can use:
 
-`site:*.com.mx inurl:/robots.txt intext:"User-agent:"`
+`site: *. com.mx inurl: /robots.txt intext:" User-agent: "`
 
-En este caso estamos reduciendo los resultados a solo paginas que tengan el dominio .com junto con .mx ".com.mx" lo que quiere decir que estamos buscando paginas
-Méxicanas ya que el dominio .mx pertenece a paginas alojadas en mexico, al encontrar esas paginas se aplica el operador inurl:/robots.txt que eso reduce aun mas 
-paginas encontradas a solo las que contengan la palabla "robots.txt" en su url, por ultimo entra intext:"User-agent:" a reducir aun mas los resultado anteriores 
-y verificando que las paginas encontradas antes tengan la palabra "user-agent:" en ellas, ahora si podemos asegurar que las paginas que encontramos nos mostraran el
-archivo robots.txt de cada pagina.
+In this case we are reducing the results to only pages that have the domain .com together with .mx ".com.mx" which means that we are looking for pages
+Mexicans since the .mx domain belongs to pages hosted in Mexico, when finding those pages the inurl operator: /robots.txt is applied, which reduces even more 
+Pages found only those that contain the word "robots.txt" in their url, finally enter intext: "User-agent:" to further reduce the previous results 
+and verifying that the pages found before have the word "user-agent:" in them, now we can ensure that the pages we find will show us the
+robots.txt file for each page.
 
-Ese es solo un ejemplo de como utilizar los operadores para encontrar cosas interesantes.
+That's just one example of how to use operators to find cool stuff.
 
-Por otra parte tambien podemos enfocarnos en buscar paginas que esten hechas en algun CMS en especifico, por ejemplo WORDPRESS, este se ha caracterizado por ser muy comodo para trabajar en el y bastante facil ya que contiene muchos plugins que nos pueden ser de mucha ayuda, pero al mismo tiempo estos complementos pueden venir con muchos fallos que permiten a otra persona explotar varias vulnerabilidades. 
+On the other hand, we can also focus on looking for pages that are made in a specific CMS, for example WORDPRESS, this has been characterized by being very comfortable to work in and quite easy since it contains many plugins that can be very helpful, but at the same time these plugins can come with many flaws that allow someone else to exploit various vulnerabilities. 
 
-Para encontrar paginas creadas en WORDPRESS primero tenemos que conocer un poco de el, su estructura basica de archivos y carpetas, los archivos mas importantes... etc, aqui voy a tratar de explicar un poco para entender mejor por que es importante conocer eso:
+To find pages created in WORDPRESS, first we have to know a little about it, its basic structure of files and folders, the most important files ... etc, here I am going to try to explain a little to better understand why it is important to know that:
 
-WORDPRESS utiliza la siguiente estructura en su url: 
+WORDPRESS uses the following structure in its url: 
 
-`https://tudominio/wp-admin o https://tudominio/wordpress/wp-admin o https://tudominio/wp/wp-admin`
+`https: // yourdomain / wp-admin or https: // yourdomain / wordpress / wp-admin or https: // yourdomain / wp / wp-admin`
 
-Sus principales carpetas y archivos importantes:
-```
-* wp-admin: Carpeta donde se guardan los archivos del back-end de WordPress, esta parte de la instalación nunca se modifica.
+Your top important folders and files:
+`` ''
+* wp-admin: Folder where the WordPress back-end files are saved, this part of the installation is never modified.
 
-* wp-content: Es la carpeta donde se guarda todo el contenido en formato de archivos (no base de datos)
+* wp-content: It is the folder where all the content is saved in file format (not database)
 
-* wp-includes: Es una carpeta de archivos que necesita WordPress para funcionar, su API y las librerías principales se encuentran en esta carpeta que tampoco se modifica nunca.
+* wp-includes: It is a folder of files that WordPress needs to work, its API and the main libraries are in this folder that is never modified either.
 
-* index.php: es el archivo principal al que se accede y desde donde se cargan el resto de partes de WordPress.
+* index.php: it is the main file accessed and from where the rest of WordPress parts are loaded.
 
-* wp-config-sample.php: Este archivo es la plantilla de lo que finalmente será el archivo WP-CONFIG.PHP tras la instalación del CMS
+* wp-config-sample.php: This file is the template of what will finally be the WP-CONFIG.PHP file after the CMS installation
 
-* xmlrpc.php: Se trata de un archivo que ofrece la comunicación mediante el protocolo XMLRPC.PHP, actualmente WordPress recibe muchos ataques a través de este archivo, por lo que es importante hacer hincapié en su seguridad y su protección.
+* xmlrpc.php: This is a file that offers communication through the XMLRPC.PHP protocol, WordPress currently receives many attacks through this file, so it is important to emphasize its security and protection.
 
-* wp-login.php:  Es un archivo bastante importante, ya que es el que se encarga de gestionar el login de los usuarios, tanto usuarios normales como administradores. 
-```
+* wp-login.php: It is a very important file, since it is the one in charge of managing the login of users, both normal users and administrators. 
+`` ''
 
-Ahora, con eso en mente ya nos damos una idea de como encontrar paginas creadas en wordpress mediante dorking:
+Now, with that in mind, we already have an idea of ​​how to find pages created in wordpress using dorking:
 
-sabemos la como se comporta wordpress para crear sus url, para encontrar paginas podemos usar lo siguiente:
+We know how wordpress behaves to create its url, to find pages we can use the following:
 
-`inurl:/wordpress/wp-content`
-`inurl:/wordpress/wp-admin`
-`inurl:/wordpress/wp-includes`
+`inurl: / wordpress / wp-content`
+`inurl: / wordpress / wp-admin`
+`inurl: / wordpress / wp-includes`
 
-aqui estamos buscando directamente una carpeta del directorio de wordpress mediante inurl, lo que nos mostrará muchas paginas en donde accederemos(si contamos con el permiso) directamente a los archivos de wordpress.
+Here we are looking directly for a folder in the wordpress directory using inurl, which will show us many pages where we will access (if we have the permission) directly to the wordpress files.
 
-## Ejemplos de dorks
+## dorks examples
 
-En esta parte utilizaré como complemento un hilo de mi propia cuenta de twitter en donde he publicado muchos dorks que me parecen interesantes y vamos a analizar algunos de ellos aqui:
+In this part I will use as a complement a thread from my own twitter account where I have published many dorks that I find interesting and we will analyze some of them here:
 
-El primero que vamos a utilizar será:
+The first one we are going to use will be:
 
-inurl:wp-config.php intext:DB_PASSWORD -stackoverflow -wpbeginner -foro -forum -topic -blog -about -docs -articles
+inurl: wp-config.php intext: DB_PASSWORD -stackoverflow -wpbeginner -forum -forum -topic -blog -about -docs -articles
 
-`https://twitter.com/_Y000_/status/1205400779957440512?s=20`
+`https: //twitter.com/_Y000_/status/1205400779957440512? s = 20`
 
-Este dork nos permite encontrar paginas creadas en wordpress y estamos buscando especificamente el archivo wp-config.php, despues utilizamos intext:DB_PASSWORD para filtrar los resultado en donde se encuentre esa palabra, que es para encontrar configuraciones de la base de datos, encontramos informacion como: usuarios, contraseña, nombre de la base de datos... etc, informacion muy importante que no deberia ser visible para cuarquier persona, por ultimo tenemos parabras con un "-" eso significa que estamos excluyendo esas palabras de nuetra busqueda.
+This dork allows us to find pages created in wordpress and we are looking specifically for the wp-config.php file, then we use intext: DB_PASSWORD to filter the results where that word is found, which is to find database configurations, we find information like: users, password, database name ... etc, very important information that should not be visible to any person, finally we have words with a "-" that means that we are excluding those words from our search.
 
 
-Otro dork muy interesante es el siguente:
+Another very interesting dork is the following:
 
-intitle:"Index Of" intext:"iCloud Photos" OR intext:"My Photo Stream" OR intext:"Camera Roll"
+intitle: "Index Of" intext: "iCloud Photos" OR intext: "My Photo Stream" OR intext: "Camera Roll"
 
-`https://twitter.com/_Y000_/status/1205647749372203010?s=20`
+`https: //twitter.com/_Y000_/status/1205647749372203010? s = 20`
 
-En este ejemplo usamos intitle:"index of" que es para encontrar directorios dentro de la pagina web, eso quiere decir que estamos buscando paginas que contengan un listado de directorios en su interior, normalmente estos no son visibles, despues estamos filtrando los resultados entre varios intext y OR lo que significa que estamos buscando cualquiera de esas 3 frases.
+In this example we use intitle: "index of" which is to find directories within the web page, that means that we are looking for pages that contain a list of directories inside, normally these are not visible, then we are filtering the results between several intext and OR which means that we are looking for any of those 3 phrases.
 
-En este caso estamos buscando dispositivos iCloud vulnerables, con lo cual podemos ver todas las fotos que esten compartiendo. este dork puede ser modificado para encontrar diferentes cosas.
+In this case we are looking for vulnerable iCloud devices, with which we can see all the photos that are being shared. This dork can be modified to find different things.
 
-Pero no solo hacemos uso de los dorks para encontrar carpetas u archovos, tambien podemos encontrar servidores corriendo algun servicio: 
+But not only do we use the dorks to find folders or files, we can also find servers running a service: 
 
-intitle:"Welcome to JBoss"
-inurl:"8080/jmx-console"
+intitle: "Welcome to JBoss"
+inurl: "8080 / jmx-console"
 
-```
+`` ''
 https://twitter.com/_Y000_/status/1232415430876090368?s=20
 https://twitter.com/_Y000_/status/1220447109842984963?s=20
-```
-Con esos dorks podemos encontrar servidores ejecutando el sistema de Jboss. 
+`` ''
+With those dorks we can find servers running the Jboss system. 
 
-## Dorks para inyeccion sql y xss
+## Dorks for sql and xss injection
 
-El Dorking es muy relacionado con las inyecciones sql y xss, ya que muchos "hackers" hacen uso de dorks para encontrar paginas vulnerables. si quieren profundizar un poco mas en las inyecciones sql les recomiendo que pasen por este escrito que tambien creé y se enfoca en eso: 
+Dorking is closely related to sql and xss injections, as many hackers make use of dorks to find vulnerable pages. If you want to delve a little more into sql injections, I recommend that you go through this writing that I also created and focuses on that:
 
 https://github.com/Y000o/sql_injection_basic/blob/master/sql_injection_basic.md
 
-En este escrito trato de explicar de una forma muy detallada las bases para una inyeccion sql ya sea manualmente o automatica haciendo uso de herramientas.
+In this writing I try to explain in a very detailed way the bases for an sql injection either manually or automatically using tools.
 
-volviendo al tema, haciendo uso de algunos dorks se facilita la busqueda para encontrar paginas vulnerables a inyecciones sql y xss, algunos son: 
+Returning to the topic, making use of some dorks makes it easier to search to find pages vulnerable to sql and xss injections, some are: 
 
-```
-specials.cfm?id=
-store_listing.cfm?id=
-store.cfm?id=
-store_bycat.cfm?id=
-storefront.cfm?id=
-Store_ViewProducts.cfm?Cat=
-store-details.cfm?id=
-StoreRedirect.cfm?ID=
-storefronts.cfm?title=
-storeitem.cfm?item=
-subcategories.cfm?id=
-tuangou.cfm?bookid=
+`` ''
+specials.cfm? id =
+store_listing.cfm? id =
+store.cfm? id =
+store_bycat.cfm? id =
+storefront.cfm? id =
+Store_ViewProducts.cfm? Cat =
+store-details.cfm? id =
+StoreRedirect.cfm? ID =
+storefronts.cfm? title =
+storeitem.cfm? item =
+subcategories.cfm? id =
+tuangou.cfm? bookid =
  
 tek9.cfm?
-template.cfm?Action=Item&pid=
-topic.cfm?ID=
-type.cfm?iType=
-view_cart.cfm?title=
+template.cfm? Action = Item & pid =
+topic.cfm? ID =
+type.cfm? iType =
+view_cart.cfm? title =
  
-updatebasket.cfm?bookid=
-updates.cfm?ID=
-view.cfm?cid=
-view_detail.cfm?ID=
-viewitem.cfm?recor=
+updatebasket.cfm? bookid =
+updates.cfm? ID =
+view.cfm? cid =
+view_detail.cfm? ID =
+viewitem.cfm? recor =
  
-viewcart.cfm?CartId=
-viewCart.cfm?userID=
-viewCat_h.cfm?idCategory=
-viewevent.cfm?EventID=
-WsAncillary.cfm?ID=
+viewcart.cfm? CartId =
+viewCart.cfm? userID =
+viewCat_h.cfm? idCategory =
+viewevent.cfm? EventID =
+WsAncillary.cfm? ID =
  
-viewPrd.cfm?idcategory=
-ViewProduct.cfm?misc=
-voteList.cfm?item_ID=
-whatsnew.cfm?idCategory=
-WsPages.cfm?ID=HP
-inurl:".php?cid="+intext:"online+betting"
+viewPrd.cfm? idcategory =
+ViewProduct.cfm? Misc =
+voteList.cfm? item_ID =
+whatsnew.cfm? idCategory =
+WsPages.cfm? ID = HP
+inurl: ". php? cid =" + intext: "online + betting"
  
-inurl:".php?cat="+intext:"Paypal"+site:UK
-inurl:".php?cat="+intext:"/Buy Now/"+site:.net
-inurl:".php?id=" intext:"View cart"
-inurl:".php?id=" intext:"/store/"
+inurl: ". php? cat =" + intext: "Paypal" + site: UK
+inurl: ". php? cat =" + intext: "/ Buy Now /" + site: .net
+inurl: ". php? id =" intext: "View cart"
+inurl: ". php? id =" intext: "/ store /"
  
-inurl:".php?id=" intext:"Buy Now"
-inurl:".php?id=" intext:"add to cart"
-inurl:".php?id=" intext:"shopping"
-inurl:".php?id=" intext:"boutique"
-inurl:".php?cid=" intext:"Buy Now"
+inurl: ". php? id =" intext: "Buy Now"
+inurl: ". php? id =" intext: "add to cart"
+inurl: ". php? id =" intext: "shopping"
+inurl: ". php? id =" intext: "boutique"
+inurl: ". php? cid =" intext: "Buy Now"
  
-inurl:".php?id=" intext:"/shop/"
-inurl:".php?id=" intext:"toys"
-inurl:".php?cid="
-inurl:".php?cid=" intext:"shopping"
-inurl:".php?cid=" intext:"add to cart"
-inurl:".php?cat="
+inurl: ". php? id =" intext: "/ shop /"
+inurl: ". php? id =" intext: "toys"
+inurl: ". php? cid ="
+inurl: ". php? cid =" intext: "shopping"
+inurl: ". php? cid =" intext: "add to cart"
+inurl: ". php? cat ="
  
-inurl:".php?cid=" intext:"View cart"
-inurl:".php?cid=" intext:"boutique"
-inurl:".php?cid=" intext:"/store/"
-inurl:".php?cid=" intext:"/shop/"
-inurl:".php?cid=" intext:"Toys"
-inurl:".php?cat=" intext:"/store/"
+inurl: ". php? cid =" intext: "View cart"
+inurl: ". php? cid =" intext: "boutique"
+inurl: ". php? cid =" intext: "/ store /"
+inurl: ". php? cid =" intext: "/ shop /"
+inurl: ". php? cid =" intext: "Toys"
+inurl: ". php? cat =" intext: "/ store /"
 
-```
-## Dorks para encontrar camaras
+`` ''
+## Dorks to find cameras
 
-Tambien podemos encontrar camaras en las cuales podemos entrar
+We can also find cameras in which we can enter
 
-```
-inurl:/sample/LvAppl/lvappl.htm
-allinurl:control/multiview
-intitle:”Live View / – AXIS"
-```
+`` ''
+inurl: /sample/LvAppl/lvappl.htm
+allinurl: control / multiview
+intitle: ”Live View / - AXIS"
+`` ''
 
-## OSINT y DORKS
+## OSINT and DORKS
 
-Haciendo uso de Dorks tambien podemos enfocarnos en OSINT que es un conjunto de técnicas y herramientas para recopilar información pública.
+Using Dorks we can also focus on OSINT, which is a set of techniques and tools to collect public information.
 
-para buscar nombres: 
-```
-“nombre” site:página web
+to search for names: 
+`` ''
+"Name" site: web page
 
-“nombre” site:http://instagram.com
+"Name" site: http: //instagram.com
 
-```
+`` ''
 
 usernames:
 
-```
-inurl:username site:página
+`` ''
+inurl: username site: page
 
-allinurl:username site:página
-```
+allinurl: username site: page
+`` ''
 
-Buscar informacion de una pagina web, obtener paginas relacionadas a ella y todos sus subdominios:
+Search for information about a web page, obtain pages related to it and all its subdomains:
 
-```
-Búsquedas en una página web:
-site:http://example.com
+`` ''
+Searches on a web page:
+site: http: //example.com
 
-Páginas parecidas:
-related:http://example.com 
+Similar pages:
+related: http: //example.com 
 
-Subdominios:
-site:*.example.com -www
-```
+Subdomains:
+site: *. example.com -www
+`` ''
 
-Correos electronicos: 
+Emails: 
 
-```
-Estos nos ayudarán a recolectar correos electrónicos de diferentes páginas web:
+`` ''
+These will help us to collect emails from different web pages:
 
-“
+"
 @example
-.com” site: página
+.com ”site: page
 
-HR “email” site: página filetype:csv | filetype:xls | filetype:xlsx
+HR "email" site: page filetype: csv | filetype: xls | filetype: xlsx
 
-site:http://example.com intext:
+site: http: //example.com intext:
 @gmail
-.com filetype:xls
+.com filetype: xls
 
-```
+`` ''
 
-un extra por @pedr4uz:
+an extra by @ pedr4uz:
 
-`https://twitter.com/pedr4uz?s=20`
+`https: //twitter.com/pedr4uz? s = 20`
 
-```
-"person_name" intext:cpf AND filetype:pdf
+`` ''
+"person_name" intext: cpf AND filetype: pdf
 
-derivado -> "person_name" intitle:aprovado + intext:cpf AND filetype:X
-```
-# Importancia final
+derived -> "person_name" intitle: approved + intext: cpf AND filetype: X
+`` ''
+# Final importance
 
-Como pudimos apreciar en este escrito, conocer bien el Dorking nos abre un mundo de posibilidades, un mundo en donde se nos hace mas facil encontrar informacion que cualquier otra persona no encotraría con facilidad, al nosotros entender bien este uso de las busquedas especializadas tenemos mucho poder, por eso es bueno y me gustaría dejarlo muy claro, mucha de la informacion que podemos encontrar puede ser que este protegida y por ende nos podemos meter en problemas si accedemos sin permiso. Todo lo aprendido en este articulo es meramente con fines educativos, cualquier uso que quieran darle es desicion de cada uno.
+As we were able to appreciate in this writing, knowing Dorking well opens up a world of possibilities, a world where it is easier for us to find information that anyone else would not find easily, by understanding this use of specialized searches well, we have a lot power, that is why it is good and I would like to make it very clear, much of the information we can find may be that it is protected and therefore we can get in trouble if we access without permission. Everything learned in this article is purely for educational purposes, whatever use they want to give is the decision of each one.

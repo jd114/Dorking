@@ -1,3 +1,3 @@
 # Dorking
 
-escrito creado para las personas que quieran aprender un poco de dorking
+writing created for people who want to learn a little dorking
